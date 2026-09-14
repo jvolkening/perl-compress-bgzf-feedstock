@@ -32,6 +32,10 @@ test:
     - Compress::BGZF
     - Compress::BGZF::Reader
     - Compress::BGZF::Writer
+  source_files:
+    - t
+  commands:
+    - prove
 
 about:
   home: http://metacpan.org/pod/Compress::BGZF
