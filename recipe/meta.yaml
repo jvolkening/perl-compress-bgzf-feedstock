@@ -14,10 +14,11 @@ build:
   number: 1
   noarch: generic
   script:
-    - perl Build.PL 
+    - perl Build.PL
     - perl ./Build
     - perl ./Build test
-    - perl ./Build install --installdirs vendor --create_packlist=0 --bindoc= --libdoc=
+    - perl ./Build install --installdirs vendor --create_packlist=0
+    - rm -rf $PREFIX/man  # unix
 
 requirements:
   host:
