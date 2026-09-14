@@ -32,6 +32,7 @@ test:
     - Compress::BGZF::Reader
     - Compress::BGZF::Writer
   source_files:
+    - lib
     - t
     - README.md
     - Changes
