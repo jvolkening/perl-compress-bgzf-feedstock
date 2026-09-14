@@ -4,21 +4,20 @@
 
 package:
   name: {{ name }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://cpan.metacpan.org/authors/id/V/VO/VOLKENING/Compress-BGZF-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   noarch: generic
-  skip: true  # [win]
   script:
     - perl Build.PL 
     - perl ./Build
     - perl ./Build test
-    - perl ./Build install --installdirs vendor --create_packlist 0
+    - perl ./Build install --installdirs vendor --create_packlist=0 --bindoc= --libdoc=
 
 requirements:
   host:
@@ -32,6 +31,13 @@ test:
     - Compress::BGZF
     - Compress::BGZF::Reader
     - Compress::BGZF::Writer
+  source_files:
+    - lib
+    - t
+    - README.md
+    - Changes
+  commands:
+    - prove
 
 about:
   home: http://metacpan.org/pod/Compress::BGZF
