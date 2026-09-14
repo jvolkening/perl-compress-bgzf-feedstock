@@ -11,14 +11,14 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   noarch: generic
   skip: true  # [win]
   script:
     - perl Build.PL 
     - perl ./Build
     - perl ./Build test
-    - perl ./Build install --installdirs vendor --create_packlist 0
+    - perl ./Build install --installdirs vendor --create_packlist=0 --bindoc= --libdoc=
 
 requirements:
   host:
