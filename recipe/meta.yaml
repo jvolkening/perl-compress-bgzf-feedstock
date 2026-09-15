@@ -11,13 +11,14 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   noarch: generic
   script:
-    - perl Build.PL 
+    - perl Build.PL
     - perl ./Build
     - perl ./Build test
-    - perl ./Build install --installdirs vendor --create_packlist=0 --bindoc= --libdoc=
+    - perl ./Build install --installdirs vendor --create_packlist=0
+    - rm -rf $PREFIX/man  # unix
 
 requirements:
   host:
@@ -48,3 +49,4 @@ about:
 extra:
   recipe-maintainers:
     - jvolkening
+    - conda-forge/perl-packagers
